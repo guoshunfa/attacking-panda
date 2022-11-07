@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- pom模型版本 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 项目信息 -->
+    <groupId>com.panda</groupId><!-- 包名 -->
+    <artifactId>attacking-panda-java</artifactId><!-- 项目名 -->
+    <version>1.0-SNAPSHOT</version>
+    <!-- 子模块 -->
+    <modules>
+        <module>panda-common</module>
+        <module>panda-framework</module>
+        <module>panda-admin</module>
+    </modules>
+    <!-- 版本 -->
+    <packaging>pom</packaging><!-- 打包方式 （pom,war,jar） -->
+
+    <name>attacking-panda-java</name><!-- 项目的名称， Maven 产生的文档用 -->
+    <description>进击的熊猫 java项目</description><!-- 项目的描述, Maven 产生的文档用 -->
+
+    <!-- 父级项目 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!-- 属性设置 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!-- 编译字符编码为utf-8 -->
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding><!-- 输出字符编码为UTF-8  -->
+        <java.version>1.8</java.version><!-- jdK版本 -->
+        <hutool.version>5.8.2</hutool.version>
+        <springboot.starter.version>2.7.4</springboot.starter.version>
+        <mybatis.version>3.5.10</mybatis.version>
+        <mybatis-plus-boot-starter.version>3.5.1</mybatis-plus-boot-starter.version>
+        <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
+        <panda-common.version>1.0-SNAPSHOT</panda-common.version>
+        <panda-framework.version>1.0-SNAPSHOT</panda-framework.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <druid-spring-boot-starter.version>1.2.11</druid-spring-boot-starter.version>
+    </properties>
+
+    <!-- 统一版本控制 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 测试 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <!-- mysql(数据库) -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+            <!-- swagger -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <!-- 本项目模块 -->
+            <dependency>
+                <groupId>com.panda</groupId>
+                <artifactId>panda-common</artifactId>
+                <version>${panda-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.panda</groupId>
+                <artifactId>panda-framework</artifactId>
+                <version>${panda-framework.version}</version>
+            </dependency>
+            <!-- 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 编译 -->
+    <build>
+        <!-- 插件 -->
+        <plugins>
+            <!-- maven插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
