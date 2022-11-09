@@ -16,10 +16,12 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!-- 基础信息项目 -->
         <dependency>
             <groupId>com.panda</groupId>
             <artifactId>panda-common</artifactId>
         </dependency>
+        <!-- 框架核心项目 -->
         <dependency>
             <groupId>com.panda</groupId>
             <artifactId>panda-framework</artifactId>
