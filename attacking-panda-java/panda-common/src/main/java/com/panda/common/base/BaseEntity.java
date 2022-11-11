@@ -1,8 +1,6 @@
 package com.panda.common.base;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,10 +25,12 @@ public class BaseEntity<T> extends Model implements Serializable {
 
     @ApiModelProperty("乐观锁字段")
     @TableField("version")
+    @Version
     private String version;
 
     @ApiModelProperty("逻辑删除字段")
     @TableField("delete_flag")
+    @TableLogic
     private String deleteFlag;
 
     @ApiModelProperty("记录创建时间")

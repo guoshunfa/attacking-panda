@@ -28,7 +28,7 @@ public class ApiResult<T> {
     }
 
     public static ApiResult fail() {
-        return fail(null);
+        return fail("接口调用错误");
     }
 
     public static <T> ApiResult<T> fail(String msg) {

@@ -6,7 +6,7 @@ import com.panda.common.exception.UsernameIsExitedException;
 import com.panda.common.result.ApiResult;
 import com.panda.system.entity.SysUser;
 import com.panda.system.service.ISysUserService;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,11 +33,19 @@ public class SysUserController extends BaseController<SysUser> {
     @Resource
     private ISysUserService sysUserService;
 
-    /**
-     * 注册用户 默认开启白名单
-     *
-     * @param user
-     */
+    @ApiOperation("删除用户")
+    @DeleteMapping("/{ids}")
+    public ApiResult delete(@PathVariable String[] ids) {
+        return toAjax(sysUserService.removeByIds(Arrays.asList(ids)));
+    }
+
+    @ApiOperation("修改用户")
+    @PutMapping
+    public ApiResult update(@RequestBody SysUser user) {
+        return toAjax(sysUserService.updateById(user));
+    }
+
+    @ApiOperation("注册用户 默认开启白名单")
     @PostMapping("/signup")
     public ApiResult signup(@RequestBody SysUser user) {
         SysUser bizUser = sysUserService.findByUsername(user.getUserName());
@@ -55,7 +63,7 @@ public class SysUserController extends BaseController<SysUser> {
      *
      * @return
      */
-    @ApiModelProperty(value = "获取用户列表")
+    @ApiOperation("获取用户列表")
     @GetMapping("/userList")
     public Map<String, Object> userList() {
         List<SysUser> users = sysUserService.list();
@@ -65,12 +73,7 @@ public class SysUserController extends BaseController<SysUser> {
         return map;
     }
 
-    /**
-     * 获取用户权限
-     *
-     * @return
-     */
-    @ApiModelProperty(value = "获取用户权限")
+    @ApiOperation("获取用户权限")
     @GetMapping("/authorityList")
     public List<String> authorityList() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
