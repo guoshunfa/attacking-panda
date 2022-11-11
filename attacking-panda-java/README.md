@@ -6,6 +6,12 @@
 2. 调整application.properties中的mysql数据库信息、redis数据库信息、log打印地址。
 3. 直接执行com.panda.admin.PandaAdminApplication类的main方法。
 
+## 项目使用
+
+### 代码生成
+
+前往com.panda.framework.generate.CodeGenerate类，调整上方常量属性值，执行main方法。
+
 ## 技术栈选取
 
 - 基础框架：[Spring Boot](https://spring.io/projects/spring-boot)
