@@ -31,12 +31,16 @@ public class ApiResult<T> {
         return fail(null);
     }
 
-    public static <T> ApiResult<T> fail(T data) {
-        return fail("请求失败", data);
+    public static <T> ApiResult<T> fail(String msg) {
+        return fail(ApiResultCodeEnum.FAILURE.getCode(), msg);
     }
 
     public static <T> ApiResult<T> fail(String msg, T data) {
         return init(ApiResultCodeEnum.FAILURE.getCode(), msg, data);
+    }
+
+    public static <T> ApiResult<T> fail(Integer code, String msg) {
+        return init(code, msg, null);
     }
 
     public static <T> ApiResult<T> init(Integer code, String msg, T data) {

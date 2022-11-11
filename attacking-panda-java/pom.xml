@@ -14,6 +14,7 @@
         <module>panda-common</module>
         <module>panda-framework</module>
         <module>panda-admin</module>
+        <module>panda-system</module>
     </modules>
     <!-- 版本 -->
     <packaging>pom</packaging><!-- 打包方式 （pom,war,jar） -->
@@ -42,6 +43,7 @@
         <springfox-swagger2.version>3.0.0</springfox-swagger2.version>
         <panda-common.version>1.0-SNAPSHOT</panda-common.version>
         <panda-framework.version>1.0-SNAPSHOT</panda-framework.version>
+        <panda-system.version>1.0-SNAPSHOT</panda-system.version>
         <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
         <druid-spring-boot-starter.version>1.2.11</druid-spring-boot-starter.version>
     </properties>
@@ -105,6 +107,11 @@
                 <groupId>com.panda</groupId>
                 <artifactId>panda-framework</artifactId>
                 <version>${panda-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.panda</groupId>
+                <artifactId>panda-system</artifactId>
+                <version>${panda-system.version}</version>
             </dependency>
             <!-- 数据库连接池 -->
             <dependency>

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = "com.panda.*")
-@MapperScan("com.panda.*.*.mapper")
+@MapperScan("com.panda.**.mapper")
 public class PandaAdminApplication {
 
     public static void main(String[] args) {

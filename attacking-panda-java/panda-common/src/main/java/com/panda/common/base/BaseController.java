@@ -24,4 +24,14 @@ public abstract class BaseController<T extends BaseEntity> {
     protected ApiResult toAjax(int rows) {
         return rows > 0 ? ApiResult.ok() : ApiResult.fail();
     }
+
+    /**
+     * 响应返回结果
+     *
+     * @param result 结果
+     * @return 操作结果
+     */
+    protected ApiResult toAjax(boolean result) {
+        return result ? ApiResult.ok() : ApiResult.fail();
+    }
 }

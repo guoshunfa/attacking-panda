@@ -3,33 +3,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>attacking-panda-java</artifactId>
-        <groupId>com.panda</groupId>
+        <groupId>com.panda</groupId><!-- 包名 -->
+        <artifactId>attacking-panda-java</artifactId><!-- 项目名 -->
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>com.panda</groupId>
-    <artifactId>panda-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>panda-admin</name>
-    <description>panda-admin</description>
+    <artifactId>panda-system</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>panda-system</name>
+    <description>panda-system</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!-- 基础信息项目 -->
         <dependency>
             <groupId>com.panda</groupId>
             <artifactId>panda-common</artifactId>
-        </dependency>
-        <!-- 框架核心项目 -->
-        <dependency>
-            <groupId>com.panda</groupId>
-            <artifactId>panda-framework</artifactId>
-        </dependency>
-        <!-- 框架核心项目 -->
-        <dependency>
-            <groupId>com.panda</groupId>
-            <artifactId>panda-system</artifactId>
         </dependency>
     </dependencies>
 

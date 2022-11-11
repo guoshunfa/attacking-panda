@@ -57,9 +57,25 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
+        <!-- 引入项目内部包 -->
         <dependency>
             <groupId>com.panda</groupId>
             <artifactId>panda-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.panda</groupId>
+            <artifactId>panda-system</artifactId>
+        </dependency>
+        <!-- spring-data-security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!--jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.7.0</version>
         </dependency>
     </dependencies>
 
