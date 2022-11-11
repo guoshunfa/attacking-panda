@@ -1,11 +1,16 @@
-package com.panda.framework.exception;
+package com.panda.framework.handler;
 
-import com.panda.framework.result.ApiResult;
+import com.panda.common.result.ApiResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * 异常处理器
+ *
+ * @author GuoShunFa
+ */
 @RestControllerAdvice
-public class PandaGlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
     /**
      * 兜底异常，其他异常都没有匹配到的会来到这个方法进行处理。

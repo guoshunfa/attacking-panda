@@ -1,18 +1,20 @@
-package com.panda.framework.result;
+package com.panda.framework.handler;
 
+import com.panda.common.annotation.NotUnifiedResult;
+import com.panda.common.result.ApiResult;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
 /**
- * 封装返回结果
+ * 返回结果 处理器
  */
-public class PandaHandlerMethodReturnValueHandler implements HandlerMethodReturnValueHandler {
+public class MethodReturnValueHandler implements HandlerMethodReturnValueHandler {
 
     private final HandlerMethodReturnValueHandler returnValueHandler;
 
-    public PandaHandlerMethodReturnValueHandler(HandlerMethodReturnValueHandler returnValueHandler) {
+    public MethodReturnValueHandler(HandlerMethodReturnValueHandler returnValueHandler) {
         this.returnValueHandler = returnValueHandler;
     }
 

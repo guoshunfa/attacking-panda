@@ -1,5 +1,6 @@
-package com.panda.framework.result;
+package com.panda.framework.config;
 
+import com.panda.framework.handler.MethodReturnValueHandler;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
@@ -10,6 +11,9 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 返回结果 配置类
+ */
 @Component
 public class ReturnValueConfig implements InitializingBean {
 
@@ -22,7 +26,7 @@ public class ReturnValueConfig implements InitializingBean {
         List<HandlerMethodReturnValueHandler> list = new ArrayList<>(unmodifiableList.size());
         for (HandlerMethodReturnValueHandler returnValueHandler : unmodifiableList) {
             if (returnValueHandler instanceof RequestResponseBodyMethodProcessor) {
-                list.add(new PandaHandlerMethodReturnValueHandler(returnValueHandler));
+                list.add(new MethodReturnValueHandler(returnValueHandler));
             } else {
                 list.add(returnValueHandler);
             }

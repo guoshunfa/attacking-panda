@@ -1,5 +1,11 @@
 # 进击的熊猫 java项目
 
+## 启动项目
+
+1. 如果没有初始化过数据库，需要执行sql目录下的sql文件，初始化过的跳过本环节。
+2. 调整application.properties中的mysql数据库信息、redis数据库信息、log打印地址。
+3. 直接执行com.panda.admin.PandaAdminApplication类的main方法。
+
 ## 技术栈选取
 
 - 基础框架：[Spring Boot](https://spring.io/projects/spring-boot)

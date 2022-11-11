@@ -1,4 +1,4 @@
-package com.panda.framework.result;
+package com.panda.common.result;
 
 /**
  * 响应码枚举

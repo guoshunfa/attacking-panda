@@ -1,9 +1,9 @@
-package com.panda.framework.result;
+package com.panda.common.result;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel("接口响应内容")
+@ApiModel("统一接口响应内容")
 public class ApiResult<T> {
 
     @ApiModelProperty("响应码")
