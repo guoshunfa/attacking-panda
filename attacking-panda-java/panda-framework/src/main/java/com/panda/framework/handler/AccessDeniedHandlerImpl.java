@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 权限不足 处理器
+ *
+ * @author GuoShunFa
+ */
 @Component
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     @Override

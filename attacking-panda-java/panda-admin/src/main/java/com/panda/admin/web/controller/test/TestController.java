@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * 测试控制器
+ *
+ * @author GuoShunFa
+ */
 @RestController
 public class TestController {
 

@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * 返回结果 配置类
+ *
+ * @author GuoShunFa
  */
 @Component
 public class ReturnValueConfig implements InitializingBean {

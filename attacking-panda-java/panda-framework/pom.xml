@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>panda-framework</artifactId>
-    <packaging>maven-plugin</packaging>
+    <packaging>jar</packaging>
 
     <name>panda-framework</name>
     <description>框架管理项目</description>
@@ -75,7 +75,6 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.7.0</version>
         </dependency>
     </dependencies>
 

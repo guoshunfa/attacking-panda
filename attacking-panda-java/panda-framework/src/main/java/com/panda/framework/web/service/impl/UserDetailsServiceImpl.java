@@ -4,19 +4,24 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.panda.framework.web.entity.LoginUser;
 import com.panda.system.entity.SysUser;
 import com.panda.system.mapper.SysUserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * 登陆用户名验证类
+ *
+ * @author GuoShunFa
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
+    @Resource
     private SysUserMapper userMapper;
 
 //    @Autowired

@@ -3,6 +3,9 @@ package com.panda.framework.util;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 响应处理工具类
+ */
 public class WebUtils {
     /**
      * 将字符串渲染到客户端

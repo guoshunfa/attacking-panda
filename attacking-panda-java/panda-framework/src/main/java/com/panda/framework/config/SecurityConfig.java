@@ -1,7 +1,6 @@
 package com.panda.framework.config;
 
 import com.panda.framework.filter.JwtAuthenticationTokenFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,15 +14,22 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.annotation.Resource;
+
+/**
+ * Spring Security 配置类
+ *
+ * @author GuoShunFa
+ */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
+    @Resource
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
-    @Autowired
+    @Resource
     private AuthenticationEntryPoint authenticationEntryPoint;
-    @Autowired
+    @Resource
     private AccessDeniedHandler accessDeniedHandler;
 
     //创建BCryptPasswordEncoder注入容器

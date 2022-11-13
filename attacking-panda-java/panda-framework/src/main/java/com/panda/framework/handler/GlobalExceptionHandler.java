@@ -1,6 +1,5 @@
 package com.panda.framework.handler;
 
-import com.panda.common.exception.NotLoginException;
 import com.panda.common.exception.ServiceException;
 import com.panda.common.exception.UsernameIsExitedException;
 import com.panda.common.result.ApiResult;
@@ -30,12 +29,6 @@ import java.net.ConnectException;
 public class GlobalExceptionHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
-
-    @ExceptionHandler(NotLoginException.class)
-    public ApiResult handlerNoFoundException(NotLoginException e) {
-        logger.error(e.getMessage(), e);
-        return ApiResult.fail(HttpServletResponse.SC_UNAUTHORIZED, "没有登陆");
-    }
 
     @ExceptionHandler(BadCredentialsException.class)
     public ApiResult handlerNoFoundException(BadCredentialsException e) {

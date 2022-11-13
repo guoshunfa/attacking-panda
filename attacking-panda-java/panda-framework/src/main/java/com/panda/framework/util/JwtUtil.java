@@ -13,6 +13,8 @@ import java.util.UUID;
 
 /**
  * JWT工具类
+ *
+ * @author GuoShunFa
  */
 public class JwtUtil {
 

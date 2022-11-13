@@ -19,6 +19,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * login 服务实现类
+ *
+ * @author GuoShunFa
+ */
 @Service
 public class LoginServiceImpl implements LoginService {
 
