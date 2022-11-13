@@ -10,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,8 +27,6 @@ import java.util.*;
 @RequestMapping("/system/sys-user")
 public class SysUserController extends BaseController<SysUser> {
 
-    @Resource
-    protected BCryptPasswordEncoder bCryptPasswordEncoder;
     @Resource
     private ISysUserService sysUserService;
 
@@ -53,7 +50,7 @@ public class SysUserController extends BaseController<SysUser> {
             throw new UsernameIsExitedException("用户已经存在");
         }
         /*user.setPassword(DigestUtils.md5DigestAsHex((user.getPassword()).getBytes()));*/
-        user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
+//        user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
 
         return toAjax(sysUserService.save(user));
     }

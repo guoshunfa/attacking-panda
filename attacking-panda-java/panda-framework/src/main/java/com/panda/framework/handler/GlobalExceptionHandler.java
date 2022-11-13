@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.ResourceAccessException;
@@ -34,6 +35,12 @@ public class GlobalExceptionHandler {
     public ApiResult handlerNoFoundException(NotLoginException e) {
         logger.error(e.getMessage(), e);
         return ApiResult.fail(HttpServletResponse.SC_UNAUTHORIZED, "没有登陆");
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ApiResult handlerNoFoundException(BadCredentialsException e) {
+        logger.error(e.getMessage(), e);
+        return ApiResult.fail(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "密码错误");
     }
 
     @ExceptionHandler(NoHandlerFoundException.class)

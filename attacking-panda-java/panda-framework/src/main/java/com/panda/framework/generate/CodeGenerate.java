@@ -34,11 +34,11 @@ public class CodeGenerate {
     // 代码生成到指定目录
     public static final String OUTPUT_DIR = "/Users/guoshunfa/workspace/my/my-main-git-project/attacking-panda/attacking-panda-java/codeGenerate";
     // 父包名
-    public static final String PARENT = "com.panda.admin";
+    public static final String PARENT = "com.panda";
     // 父包模块
     public static final String MODULE_NAME = "system";
     // 需要生成的表
-    public static final String[] ADD_INCLUDE = {"sys_user", "sys_dept"};
+    public static final String[] ADD_INCLUDE = {"sys_menu"};
     // 设置过滤表前缀，例子："t_", "c_"
     public static final String[] ADD_TABLE_PREFIX = {};
 
