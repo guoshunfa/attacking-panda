@@ -1,6 +1,7 @@
 package com.panda.admin.web.controller.system;
 
 
+import cn.hutool.crypto.digest.BCrypt;
 import com.panda.common.base.BaseController;
 import com.panda.common.exception.UsernameIsExitedException;
 import com.panda.common.result.ApiResult;
@@ -49,9 +50,7 @@ public class SysUserController extends BaseController<SysUser> {
         if (null != bizUser) {
             throw new UsernameIsExitedException("用户已经存在");
         }
-        /*user.setPassword(DigestUtils.md5DigestAsHex((user.getPassword()).getBytes()));*/
-//        user.setUserPassword(bCryptPasswordEncoder.encode(user.getUserPassword()));
-
+        user.setUserPassword(BCrypt.hashpw(user.getUserPassword()));
         return toAjax(sysUserService.save(user));
     }
 
