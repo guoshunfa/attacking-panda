@@ -1,7 +1,7 @@
 package com.panda.framework.handler;
 
 import com.panda.common.exception.ServiceException;
-import com.panda.common.exception.UsernameIsExitedException;
+import com.panda.common.exception.UsernameIsExistedException;
 import com.panda.common.result.ApiResult;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
@@ -48,8 +48,8 @@ public class GlobalExceptionHandler {
         return ApiResult.fail("数据库中已存在该记录");
     }
 
-    @ExceptionHandler(UsernameIsExitedException.class)
-    public ApiResult usernameIsExitedException(UsernameIsExitedException e) {
+    @ExceptionHandler(UsernameIsExistedException.class)
+    public ApiResult usernameIsExitedException(UsernameIsExistedException e) {
         logger.error(e.getMessage(), e);
         return ApiResult.fail("用户已经存在");
     }

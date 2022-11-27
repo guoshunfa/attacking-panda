@@ -7,13 +7,13 @@ package com.panda.common.exception;
  * @author: GuoShunFa
  * @date: 2022/11/11
  */
-public class UsernameIsExitedException extends ServiceException {
+public class UsernameIsExistedException extends ServiceException {
 
-    public UsernameIsExitedException(String msg) {
+    public UsernameIsExistedException(String msg) {
         super(msg);
     }
 
-    public UsernameIsExitedException(String msg, Throwable t) {
+    public UsernameIsExistedException(String msg, Throwable t) {
         super(msg, t);
     }
 }
