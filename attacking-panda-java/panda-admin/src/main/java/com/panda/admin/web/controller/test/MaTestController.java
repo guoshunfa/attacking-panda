@@ -2,6 +2,7 @@ package com.panda.admin.web.controller.test;
 
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
+import com.panda.common.annotation.NoLoginVerify;
 import com.panda.framework.util.UserInfoUtil;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.data.redis.connection.RedisConnectionCommands;
@@ -28,12 +29,14 @@ public class MaTestController {
 
     @ApiOperation("test01 测试redis")
     @GetMapping("/test01")
+    @NoLoginVerify
     public String test01(){
         return (String) redisTemplate.execute(RedisConnectionCommands::ping);
     }
 
     @ApiOperation("test02 测试SpringSecurity工具类 UserInfoUtil")
     @GetMapping("/test02")
+    @NoLoginVerify
     public void test02(){
         Log log = LogFactory.get();
         log.info(UserInfoUtil.getSecurityContext().toString());
