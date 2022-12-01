@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  * @author: GuoShunFa
  * @date: 2022/11/27
  **/
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface NoLoginVerify {

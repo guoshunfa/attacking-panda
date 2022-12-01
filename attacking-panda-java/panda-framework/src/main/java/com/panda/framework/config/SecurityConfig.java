@@ -1,10 +1,9 @@
 package com.panda.framework.config;
 
-import com.panda.common.annotation.NoLoginVerify;
 import com.panda.framework.filter.JwtAuthenticationTokenFilter;
+import com.panda.framework.handler.NoLoginVerifyHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,14 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
-import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import javax.annotation.Resource;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Spring Security 配置类
@@ -35,8 +28,6 @@ import java.util.Set;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    protected final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
-
     @Resource
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
     @Resource
@@ -44,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource
     private AccessDeniedHandler accessDeniedHandler;
     @Resource
-    private ApplicationContext applicationContext;
+    private NoLoginVerifyHandler noLoginVerifyHandler;
 
     /**
      * 创建BCryptPasswordEncoder注入容器
@@ -64,9 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 对于登录接口 允许匿名访问
-                .antMatchers("/user/login", "/system/sys-user/signup").anonymous()
-                .antMatchers(getAnonymousUrls()).anonymous()
+                // 根据注解，获取匿名访问路径数组
+                .antMatchers(noLoginVerifyHandler.getAnonymousUrl()).anonymous()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
 
@@ -89,21 +79,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    /**
-     * 获取所有可以匿名访问的Mapping地址
-     */
-    private String[] getAnonymousUrls() {
-        Map<RequestMappingInfo, HandlerMethod> handlerMethods = applicationContext.getBean(RequestMappingHandlerMapping.class).getHandlerMethods();
-        Set<String> anonymousUrls = new HashSet<>();
-        for (Map.Entry<RequestMappingInfo, HandlerMethod> infoEntry : handlerMethods.entrySet()) {
-            HandlerMethod handlerMethod = infoEntry.getValue();
-            NoLoginVerify noLoginVerify = handlerMethod.getMethodAnnotation(NoLoginVerify.class);
-            if (noLoginVerify != null) {
-                anonymousUrls.addAll(infoEntry.getKey().getPatternsCondition().getPatterns());
-            }
-        }
-        return anonymousUrls.toArray(new String[0]);
-    }
 
 
 }
