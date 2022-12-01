@@ -30,10 +30,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+
     @Resource
     private AuthenticationEntryPoint authenticationEntryPoint;
+
     @Resource
     private AccessDeniedHandler accessDeniedHandler;
+
     @Resource
     private NoLoginVerifyHandler noLoginVerifyHandler;
 
@@ -55,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                // 根据注解，获取匿名访问路径数组
+				// 根据注解，获取匿名访问路径数组
                 .antMatchers(noLoginVerifyHandler.getAnonymousUrl()).anonymous()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
