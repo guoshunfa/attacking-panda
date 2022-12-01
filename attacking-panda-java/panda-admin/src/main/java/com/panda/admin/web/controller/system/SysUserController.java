@@ -2,6 +2,7 @@ package com.panda.admin.web.controller.system;
 
 
 import cn.hutool.crypto.digest.BCrypt;
+import com.panda.common.annotation.NoLoginVerify;
 import com.panda.common.base.BaseController;
 import com.panda.common.exception.UsernameIsExistedException;
 import com.panda.common.result.ApiResult;
@@ -45,6 +46,7 @@ public class SysUserController extends BaseController<SysUser> {
 
     @ApiOperation("注册用户 默认开启白名单")
     @PostMapping("/signup")
+    @NoLoginVerify
     public ApiResult signup(@RequestBody SysUser user) {
         SysUser bizUser = sysUserService.findByUsername(user.getUserName());
         if (null != bizUser) {

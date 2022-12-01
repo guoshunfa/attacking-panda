@@ -39,10 +39,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Resource
     private JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter;
+
     @Resource
     private AuthenticationEntryPoint authenticationEntryPoint;
+
     @Resource
     private AccessDeniedHandler accessDeniedHandler;
+
     @Resource
     private ApplicationContext applicationContext;
 
@@ -65,7 +68,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 // 对于登录接口 允许匿名访问
-                .antMatchers("/user/login", "/system/sys-user/signup").anonymous()
                 .antMatchers(getAnonymousUrls()).anonymous()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
@@ -104,6 +106,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         }
         return anonymousUrls.toArray(new String[0]);
     }
-
 
 }

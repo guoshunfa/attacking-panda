@@ -1,5 +1,6 @@
 package com.panda.admin.web.controller.login;
 
+import com.panda.common.annotation.NoLoginVerify;
 import com.panda.common.result.ApiResult;
 import com.panda.framework.web.service.LoginService;
 import com.panda.system.entity.SysUser;
@@ -19,6 +20,7 @@ public class LoginController {
 
     @PostMapping("/user/login")
     @ApiOperation("登陆接口")
+    @NoLoginVerify
     public ApiResult login(@RequestBody SysUser user) {
         return loginService.login(user);
     }
